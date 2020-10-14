@@ -1,0 +1,43 @@
+1、安装UBUNTU18.04 LTS
+（1）下载iso镜像
+
+https://www.ubuntu.com/download/desktop
+
+（2）安装镜像至u盘
+
+建议使用Rufus，相比其他Universal-USB-Installer之类速度快的多（毕竟我们的u盘快不到哪里去）。
+
+http://www.softpedia.com/get/System/Boot-Manager-Disk/Rufus.shtml
+
+
+
+
+2、安装LIME驱动
+Lime驱动其实有两个，一个是LimeSuite的官方驱动，一个是Soapysdr第三方驱动，都要安装。
+
+（1）PPA，Personal Package Archive（个人软件包存档），是默认情况下并未被包含在Ubuntu中的软件的一个集合，通过其安装myriadrf的官方驱动。
+
+sudo add-apt-repository -y ppa:myriadrf/drivers
+
+（2）更新
+
+sudo apt-get update
+
+（3）安装limesuite驱动
+
+sudo apt-get install limesuite liblimesuite-dev limesuite-udev limesuite-images
+
+
+（4）安装soapysdr驱动
+
+sudo apt-get install soapysdr soapysdr-module-lms7
+
+
+
+（5）测试驱动是否正常
+SoapySDRUtil --find
+
+LimeUtil --find
+
+插入LimeSDR mini时
+这里有时候media是2.0，有时候是3.0，建议如果是2.0再插拔下试试。
